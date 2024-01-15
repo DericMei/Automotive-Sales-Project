@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import dash
 from dash import dcc
 from dash import html
@@ -17,6 +11,9 @@ data = pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.appdomain
 
 # Initialize the Dash app
 app = dash.Dash(__name__)
+
+#Define the server variable
+server = app.server
 
 # Set the title of the dashboard
 app.title = "Automobile Statistics Dashboard"
@@ -172,4 +169,3 @@ def update_output_container(selected_year, selected_statistics):
 # Run the Dash app
 if __name__ == '__main__':
     app.run_server(debug=True)
-# %%
