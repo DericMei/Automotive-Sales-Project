@@ -19,7 +19,7 @@ data = pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.appdomain
 app = dash.Dash(__name__)
 
 # Set the title of the dashboard
-#app.title = "Automobile Statistics Dashboard"
+app.title = "Automobile Statistics Dashboard"
 
 #---------------------------------------------------------------------------------
 # Create the dropdown menu options
@@ -32,9 +32,10 @@ year_list = [i for i in range(1980, 2024, 1)]
 #---------------------------------------------------------------------------------------
 # Create the layout of the app
 app.layout = html.Div([
-    #TASK 2.1 Add title to the dashboard
+    # Add title to the dashboard
     html.H1("Automobile Sales Statistics Dashboard", style={'textAlign': 'left', 'color': '#503D36', 'font-size': 24}),#May include style for title
-    html.Div([#TASK 2.2: Add two dropdown menus
+    html.Div([
+        # Add two dropdown menus
         html.Label("Select Statistics:"),
         dcc.Dropdown(
             id='dropdown-statistics',
@@ -49,10 +50,11 @@ app.layout = html.Div([
             value='Select Statistics',
             placeholder='Select a year'
         )),
-    html.Div([#TASK 2.3: Add a division for output display
+    html.Div([
+    # Add a division for output display
     html.Div(id='output-container', className='chart-grid', style={'display': 'flex'}),])
 ])
-#TASK 2.4: Creating Callbacks
+# Creating Callbacks
 # Define the callback function to update the input container based on the selected statistics
 @app.callback(
     Output(component_id='input_year', component_property='disabled'),
@@ -76,7 +78,7 @@ def update_output_container(selected_year, selected_statistics):
         # Filter the data for recession periods
         recession_data = data[data['Recession'] == 1]
         
-#TASK 2.5: Create and display graphs for Recession Report Statistics
+# Create and display graphs for Recession Report Statistics
 
 #Plot 1 Automobile sales fluctuate over Recession Period (year wise)
         # use groupby to create relevant data for plotting
@@ -113,20 +115,19 @@ def update_output_container(selected_year, selected_statistics):
                 y='Automobile_Sales',
                 title="Sales Across Vehicle Types over Recession Period"))
 
-
         return [
             html.Div(className='chart-item', children=[html.Div(children=R_chart1),html.Div(children=R_chart2)]),
             html.Div(className='chart-item', children=[html.Div(children=R_chart3),html.Div(children=R_chart4)])
             ]
 
-# TASK 2.6: Create and display graphs for Yearly Report Statistics
+# Create and display graphs for Yearly Report Statistics
  # Yearly Statistic Report Plots                             
     elif (selected_year and selected_statistics=='Yearly Statistics') :
         data['Year'] = data['Year'].astype(int)
 
         yearly_data = data[data['Year'] == selected_year]
                               
-#TASK 2.5: Creating Graphs Yearly data
+# Creating Graphs Yearly data
                               
 #plot 1 Yearly Automobile sales using line chart for the whole period.
         yas= data.groupby('Year')['Automobile_Sales'].mean().reset_index()
@@ -159,7 +160,7 @@ def update_output_container(selected_year, selected_statistics):
             names='Vehicle_Type',
             title=f'Total Advertisement Expenditure by Vehicle Type in {selected_year}'))
 
-#TASK 2.6: Returning the graphs for displaying Yearly data
+# Returning the graphs for displaying Yearly data
         return [
                 html.Div(className='chart-item', children=[html.Div(children=Y_chart1), html.Div(children=Y_chart2)]),
                 html.Div(className='chart-item', children=[html.Div(children=Y_chart3), html.Div(children=Y_chart4)])
@@ -171,4 +172,4 @@ def update_output_container(selected_year, selected_statistics):
 # Run the Dash app
 if __name__ == '__main__':
     app.run_server(debug=True)
-
+# %%
