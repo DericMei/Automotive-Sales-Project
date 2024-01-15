@@ -3,10 +3,10 @@
 An interactive dashboard project analyzing automobile sales statistics in the United States built using dash and deployed with heroku.
 
 ## Project Summary
-This is the final project I did by taking the Coursera course 'Data Visualization with Python'. It involves building an interactive dashboard with dash and plotly within python and finally web application deployement with Heroku. It involves analysing automobile sales during all the recession periods during the recent few decades. The interactive dashboard also provides the function to dive into different years of auto sales data.
+This is the final project I did by taking the Coursera course 'Data Visualization with Python'. It involves building an interactive dashboard with dash and plotly within python and finally web application deployment with Heroku. It involves analyzing automobile sales during all the recession periods during the recent few decades. The interactive dashboard also provides the function to dive into different years of auto sales data.
 
 ## Key Take-aways
-- Automobile sales drastically decreases during all the recession preiods.
+- Automobile sales drastically decreases during all the recession periods.
 - Sports and Executive cars sales a lot less than other more affordable cars such as small family cars.
 - There isn't a clear seasonal trend in car sales.
 - Overall, medium family car is the most popular type.
