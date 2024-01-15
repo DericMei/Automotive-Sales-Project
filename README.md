@@ -1,4 +1,4 @@
-# **Automotive Sales Project**
+# **Automobile Sales in the United Sates**
 
 An interactive dashboard project analyzing automobile sales statistics in the United States built using dash and deployed with heroku.
 
